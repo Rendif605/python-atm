@@ -1,3 +1,4 @@
+import getpass
 user_id = 0
 loop = "n"
 users = [
@@ -6,7 +7,7 @@ users = [
         "no_rekening": "1234567890",
         "username": "pery",
         "pin": "4321",
-        "saldo": 0
+        "saldo": 1000000
     },
     {
         "id": "4321",
@@ -63,13 +64,21 @@ def ambil_uang(uang):
             print("sisa saldo anda adalah Rp.", users[index1]['saldo'])
         else:
             print("Ops saldo anda tidak cukup")
+def isi_saldo(uang):
+    index1 = cek_user(user_id)
+    if index1 >= 0:
+        if users[index1]['saldo'] >= int(uang):
+            users[index1]['saldo'] = users[index1]['saldo'] + int(uang)
+            print("Anda berhasil Menambah uang Rp." + str(uang))
+            print("sisa saldo anda adalah Rp.", users[index1]['saldo'])
+        
  
  
 while pakai_atm == "y":
     while not status_login:
         print("SELAMAT DATANG DI ATM BANK ")
         print("Silahkan masukan pin anda")
-        pin = input("Masukan PIN : ")
+        pin = getpass.getpass("Masukan PIN : ")
  
         cl = cek_login(pin)
         if cl:
@@ -89,8 +98,9 @@ while pakai_atm == "y":
         print("1.Cek Saldo")
         print("2.Transfer Uang")
         print("3.Ambil Uang")
-        print("4.Logout")
-        print("5.Keluar ATM")
+        print("4.Isi Saldo")
+        print("5.Logout")
+        print("6.Keluar ATM")
         a = int(input("Silahkan pilih menu : "))
         if a == 1:
             print("")
@@ -121,9 +131,14 @@ while pakai_atm == "y":
             print("")
             loop = "n"
         elif a == 4:
+            nominal = input("Saldo Yang Akan Di isi : ")
+            isi_saldo(nominal)
+            print("")
+            loop = "n"
+        elif a == 5:
             status_login = False
  
-        elif a == 5:
+        elif a == 6:
             status_login = False
             loop = "n"
             pakai_atm = "n"
