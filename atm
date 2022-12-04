@@ -1,0 +1,51 @@
+print ("Selamat datang Bank ATM")
+restart=("Y")
+menu = 3
+balance = 500000
+while menu >= 0:
+    pin = int (input("Masukan PIN: "))
+    if pin == (1234):
+          lala = ("l")
+          while lala  not in (' '):
+            print('1 Cek Saldo \n')
+            print('2 Ambil Uang\n')
+            print('3 Isi Saldo \n')
+            print ('4 Keluar ATM\n')
+            option = int(input('Apa yang ingin Anda pilin?'))
+            if option == 1:
+                print ('Saldo Anda $',balance,'\n')
+                pin = input('kembali Ke menu (Enter)   ')
+                
+            elif option == 2:
+                withdrawl = float(input('Berapa Total Uang Yang Akan Di Tarik? \nRp.50000\nRp.100000\nRp.200000\nSilakan masukan Nominal :'))
+                if withdrawl in [50000,10000, 200000 ]:
+                    balance = balance - withdrawl
+                    print ('\nSaldo Anda adalah',balance)
+                    pin = input('kembali Ke menu (Enter)   ')
+                    
+                elif withdrawl != [50000,100000, 200000 ]:
+                    print ('Nominal Yang anda Input salah  \n')
+                    pin = input('kembali Ke menu (Enter) ')
+
+               
+                    
+                    
+            elif option == 3:
+                  Pay_in = float(input("Berapa Banyak yang Ingin Anda Bayar? "))
+                  balance = balance + Pay_in
+                  print ("\nSaldo Anda ",balance)
+                  pin = input('kembali Ke menu (Enter) ')
+                    
+            elif option == 4:
+                print ('Harap tunggu sementara kartu Anda Dikembalikan.')
+                print ('Terimakasih ')
+                break
+            else :
+                print('Nomor Di inputkan salah r. \n')
+                restart = ('y')
+     
+    elif pin != (1234):
+        print ('Sandi Anda Salah')
+        
+       
+            
