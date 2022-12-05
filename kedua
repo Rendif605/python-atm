@@ -78,7 +78,7 @@ while pakai_atm == "y":
     while not status_login:
         print("SELAMAT DATANG DI ATM BANK ")
         print("Silahkan masukan pin anda")
-        pin = getpass.getpass("Masukan PIN : ")
+        pin = getpass.getpass(prompt="Masukan PIN : ")
  
         cl = cek_login(pin)
         if cl:
